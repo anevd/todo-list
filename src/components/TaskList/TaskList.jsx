@@ -6,7 +6,7 @@ function TaskList({ list }) {
 		<div className="row">
 			{list.map((task) => (
 				<div key={task.id} className="col s12">
-					<Task text={task.task} completed={task.defaultChecked} />
+					<Task list={list} text={task.task} id={task.id} />
 				</div>
 			))}
 		</div>

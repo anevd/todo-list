@@ -9,8 +9,8 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-input[type="text"].browser-default {
-	height: 100px;
+input[type="text"]:not(.browser-default):focus:not([readonly]) {
+	border-bottom: 1px solid #90caf9;
 }
 
 .row {
@@ -31,4 +31,9 @@ input[type="text"].browser-default {
 
 [type="checkbox"] + span:not(.lever) {
 	font-size: 18px;
+}
+
+[type="checkbox"].filled-in:checked + span:not(.lever):after {
+	border: 2px solid #90caf9;
+	background-color: #90caf9;
 }

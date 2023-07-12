@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function TaskList({ text }) {
+function Task({ text }) {
 	const [checked, setChecked] = useState(false);
 	const resolvedClass = {
 		textDecoration: "line-through",
@@ -12,7 +12,7 @@ function TaskList({ text }) {
 				<div className="card-content">
 					<p>
 						<label>
-							<input type="checkbox" className="filled-in" defaultChecked={checked} onChange={() => setChecked((state) => !state)} />
+							<input type="checkbox" className="filled-in" onChange={() => setChecked((state) => !state)} />
 							<span style={checked === true ? resolvedClass : {}}>{text}</span>
 						</label>
 					</p>
@@ -22,4 +22,4 @@ function TaskList({ text }) {
 	);
 }
 
-export default TaskList;
+export default Task;

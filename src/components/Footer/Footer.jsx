@@ -1,6 +1,6 @@
 import React from "react";
 
-function footer(props) {
+function Footer() {
 	return (
 		<footer className="page-footer blue lighten-4">
 			<div className="footer-copyright blue lighten-3">
@@ -10,4 +10,4 @@ function footer(props) {
 	);
 }
 
-export default footer;
+export default Footer;

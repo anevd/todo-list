@@ -1,6 +1,6 @@
 import React from "react";
 
-function header(props) {
+function Header() {
 	const headerText = {
 		fontSize: "30px",
 		fontWeight: 700,
@@ -14,4 +14,4 @@ function header(props) {
 	);
 }
 
-export default header;
+export default Header;

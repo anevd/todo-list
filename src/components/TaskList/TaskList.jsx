@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { globalContext } from "../../contexts/globalContext";
 import Task from "../Task/Task";
 
-function TaskList({ list }) {
+function TaskList() {
+	const { list } = useContext(globalContext);
 	return (
 		<div className="row">
 			{list.map((task) => (
 				<div key={task.id} className="col s12">
-					<Task list={list} text={task.task} id={task.id} />
+					<Task text={task.task} />
 				</div>
 			))}
 		</div>

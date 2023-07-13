@@ -1,9 +1,10 @@
+import React from "react";
 import { useState } from "react";
 import "./index.css";
-import Input from "./components/Input/Input";
-import TaskList from "./components/TaskList/TaskList";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import { globalContext as GlobalContext } from "./contexts/globalContext";
 import { useLocalStorage } from "./components/hooks/useLocalStorage";
 
 function App() {
@@ -22,12 +23,11 @@ function App() {
 	}
 	return (
 		<>
-			<Header />
-			<main className="container">
-				<Input text={task} setTask={setTask} handleSubmit={handleSubmit} />
-				<TaskList list={list} />
-			</main>
-			<Footer />
+			<GlobalContext.Provider value={{ task, setTask, list, setList, handleSubmit, status, setStatus }}>
+				<Header />
+				<Main />
+				<Footer />
+			</GlobalContext.Provider>
 		</>
 	);
 }

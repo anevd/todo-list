@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { globalContext } from "../../contexts/globalContext";
 
-function Input({ text, setTask, handleSubmit }) {
+function Input() {
+	const { task, setTask, handleSubmit } = useContext(globalContext);
 	return (
 		<form className="row" onSubmit={handleSubmit}>
 			<div className="col s12">
@@ -8,7 +10,7 @@ function Input({ text, setTask, handleSubmit }) {
 					<input
 						id="task"
 						type="text"
-						value={text}
+						value={task}
 						className="validate blue-grey-text text-darken-3"
 						required
 						onChange={(event) => {

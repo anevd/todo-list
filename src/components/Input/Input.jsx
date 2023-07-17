@@ -1,8 +1,24 @@
 import React, { useContext } from "react";
 import { globalContext } from "../../contexts/globalContext";
+import { useState } from "react";
 
 function Input() {
-	const { task, setTask, handleSubmit } = useContext(globalContext);
+	const { dispatch } = useContext(globalContext);
+	const [task, setTask] = useState("");
+
+	function handleSubmit(event) {
+		event.preventDefault();
+		dispatch({
+			type: "ADD_TASK",
+			payload: {
+				task,
+				status: false,
+				id: Date.now(),
+			},
+		});
+		setTask("");
+	}
+
 	return (
 		<form className="row" onSubmit={handleSubmit}>
 			<div className="col s12">

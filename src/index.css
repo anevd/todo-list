@@ -29,6 +29,27 @@ input[type="text"]:not(.browser-default):focus:not([readonly]) {
 	margin-top: 20px;
 }
 
+.card-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card-content_icons {
+	width: 80px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.card-content_edit,
+.card-content_delete {
+	cursor: pointer;
+}
+
+.card-content_delete {
+	margin-left: 10px;
+}
+
 [type="checkbox"] + span:not(.lever) {
 	font-size: 18px;
 }

@@ -1,29 +1,23 @@
-import React from "react";
-import { useState } from "react";
+import React, { useReducer } from "react";
 import "./index.css";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import { globalContext as GlobalContext } from "./contexts/globalContext";
 import { useLocalStorage } from "./components/hooks/useLocalStorage";
+import { reducer } from "./reducers/reducer";
 
 function App() {
-	const [task, setTask] = useState("");
-	const [status, setStatus] = useState(false);
-	const [list, setList] = useLocalStorage([], "plan");
-	function handleSubmit(event) {
-		event.preventDefault();
-		const todo = {
-			task,
-			status,
-			id: Date.now(),
-		};
-		setList((prev) => [todo, ...prev]);
-		setTask("");
-	}
+	const initialState = {
+		list: [],
+	};
+
+	const [state, dispatch] = useReducer(reducer, initialState);
+	// const [list, setList] = useLocalStorage([], "plan");
+
 	return (
 		<>
-			<GlobalContext.Provider value={{ task, setTask, list, setList, handleSubmit, status, setStatus }}>
+			<GlobalContext.Provider value={{ state, dispatch }}>
 				<Header />
 				<Main />
 				<Footer />

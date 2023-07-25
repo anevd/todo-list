@@ -20,6 +20,18 @@ export function reducer(state, action) {
 				}),
 			};
 		}
+		case "EDIT_TASK": {
+			const editedTask = action.payload;
+			return {
+				...state,
+				list: state.list.map((el) => {
+					if (el.id === editedTask.id) {
+						el.task = editedTask.value;
+					}
+					return el;
+				}),
+			};
+		}
 		default: {
 			return state;
 		}

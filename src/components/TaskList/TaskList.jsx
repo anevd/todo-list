@@ -8,7 +8,7 @@ function TaskList() {
 		<div className="row">
 			{state.list.map((task) => (
 				<div key={task.id} className="col s12">
-					<Task text={task.task} status={task.status} id={task.id} />
+					<Task text={task.task} id={task.id} status={task.status} />
 				</div>
 			))}
 		</div>

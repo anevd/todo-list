@@ -22,7 +22,7 @@ function Input() {
 	return (
 		<form className="row" onSubmit={handleSubmit}>
 			<div className="col s12">
-				<div className="input-field col s6">
+				<div className="input-field col s10">
 					<input
 						id="task"
 						type="text"

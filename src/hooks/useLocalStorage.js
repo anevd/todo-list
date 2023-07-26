@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useReducer } from "react";
+import { reducer } from "../reducers/reducer";
 
 function useLocalStorage(initialValue, key) {
-	const getValue = () => {
+	const [state, dispatch] = useReducer(reducer, initialValue, () => {
 		const storage = localStorage.getItem(key);
 		if (storage !== null) {
 			try {
@@ -11,12 +12,11 @@ function useLocalStorage(initialValue, key) {
 			}
 		}
 		return initialValue;
-	};
-	const [value, setValue] = useState(getValue);
+	});
 	useEffect(() => {
-		localStorage.setItem(key, JSON.stringify(value));
-	}, [key, value]);
-	return [value, setValue];
+		localStorage.setItem(key, JSON.stringify(state));
+	}, [key, state]);
+	return [state, dispatch];
 }
 
 export { useLocalStorage };
